@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="0@8O @<>;0520">
-  <circle cx="60" cy="60" r="56" stroke="#B08D57" stroke-width="1.5" opacity="0.55"/>
-  <path d="M28 78 V42 L48 68 L68 42 V78" stroke="#2E2A27" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M72 78 V50 C72 42 82 40 88 46 C94 52 94 62 88 68 C82 74 72 72 72 64" stroke="#B08D57" stroke-width="2.4" stroke-linecap="round" fill="none"/>
-  <circle cx="88" cy="40" r="3" fill="#C89F7E"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Мария Ермолаева">
+  <circle cx="64" cy="64" r="62" fill="#FAF6F1" stroke="#B08D57" stroke-width="3"/>
+  <circle cx="64" cy="64" r="52" fill="none" stroke="#EBD9D1" stroke-width="2"/>
+  <text x="64" y="78" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600" fill="#2E2A27" letter-spacing="2">ME</text>
+  <path d="M40 92 Q64 104 88 92" fill="none" stroke="#B08D57" stroke-width="2" stroke-linecap="round"/>
 </svg>
