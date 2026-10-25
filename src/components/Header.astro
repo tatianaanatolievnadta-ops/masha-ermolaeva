@@ -7,14 +7,30 @@ import { path } from '@/lib/paths';
   class="sticky top-0 z-40 border-b border-powder/80 bg-milk/95 backdrop-blur-md"
 >
   <div class="container-page flex h-18 items-center justify-between gap-4 py-3 md:h-24 md:py-0">
-    <a href={path('/')} class="flex min-w-0 items-center gap-3 md:gap-4" aria-label={`${site.name} — ${site.slogan}`}>
-      <img
-        src={path(site.photos.logo)}
-        alt="Логотип Мария Ермолаева"
-        width="80"
-        height="80"
-        class="h-16 w-16 shrink-0 rounded-full border border-caramel/40 bg-milk shadow-sm md:h-20 md:w-20"
-      />
+    <a href={path('/')} class="flex min-w-0 items-center gap-2.5 md:gap-4" aria-label={`${site.name} — ${site.slogan}`}>
+      <!-- Временно два варианта — Мария выберет, какой оставить -->
+      <span class="flex shrink-0 items-end gap-2">
+        <span class="flex flex-col items-center gap-0.5">
+          <img
+            src={path('/images/logo-masha-massage-v2.jpg')}
+            alt="Вариант 1 — массаж"
+            width="80"
+            height="80"
+            class="h-14 w-14 rounded-full border border-caramel/40 bg-milk shadow-sm md:h-20 md:w-20"
+          />
+          <span class="hidden text-[9px] font-medium tracking-wide text-taupe uppercase sm:block">1 · массаж</span>
+        </span>
+        <span class="flex flex-col items-center gap-0.5">
+          <img
+            src={path('/images/logo-masha-hands-heart.jpg')}
+            alt="Вариант 2 — руки и сердце"
+            width="80"
+            height="80"
+            class="h-14 w-14 rounded-full border border-caramel/40 bg-milk shadow-sm md:h-20 md:w-20"
+          />
+          <span class="hidden text-[9px] font-medium tracking-wide text-taupe uppercase sm:block">2 · сердце</span>
+        </span>
+      </span>
       <span class="min-w-0">
         <span class="font-display block text-xl font-semibold tracking-tight md:text-3xl">
           Мария Ермолаева
