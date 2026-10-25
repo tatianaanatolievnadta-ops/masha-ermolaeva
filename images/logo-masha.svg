@@ -1,52 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Мария Ермолаева">
   <circle cx="64" cy="64" r="62" fill="#FAF6F1" stroke="#B08D57" stroke-width="2.5"/>
-  <circle cx="64" cy="64" r="54" fill="none" stroke="#EBD9D1" stroke-width="1.5"/>
+  <circle cx="64" cy="64" r="54" fill="none" stroke="#EBD9D1" stroke-width="1.25"/>
 
-  <!-- Monogram ME -->
   <text
     x="64"
-    y="58"
+    y="52"
     text-anchor="middle"
     font-family="Georgia, 'Times New Roman', serif"
-    font-size="34"
+    font-size="32"
     font-weight="600"
     fill="#2E2A27"
-    letter-spacing="1.5"
+    letter-spacing="2"
   >ME</text>
 
-  <!-- Line-drawn women's hands (gentle care gesture) -->
-  <g
-    fill="none"
-    stroke="#B08D57"
-    stroke-width="1.6"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <!-- Left hand, palm up, reaching center -->
-    <path d="M28 88
-      C30 82 34 78 40 78
-      C44 78 46 80 47 84
-      L48 92
-      C45 96 40 98 36 96
-      C32 94 30 90 28 88Z"/>
-    <path d="M40 78 C41 74 43 72 45 72 C47 72 48 74 48 77"/>
-    <path d="M43 78 C45 73 48 71 50 72 C52 73 52 76 51 79"/>
-    <path d="M46 80 C49 76 52 75 54 77 C55 79 54 82 52 84"/>
-    <path d="M47 84 C50 82 54 83 55 86 C56 88 54 90 51 90"/>
-
-    <!-- Right hand, palm up, mirroring -->
-    <path d="M100 88
-      C98 82 94 78 88 78
-      C84 78 82 80 81 84
-      L80 92
-      C83 96 88 98 92 96
-      C96 94 98 90 100 88Z"/>
-    <path d="M88 78 C87 74 85 72 83 72 C81 72 80 74 80 77"/>
-    <path d="M85 78 C83 73 80 71 78 72 C76 73 76 76 77 79"/>
-    <path d="M82 80 C79 76 76 75 74 77 C73 79 74 82 76 84"/>
-    <path d="M81 84 C78 82 74 83 73 86 C72 88 74 90 77 90"/>
-
-    <!-- Soft meeting curve between hands -->
-    <path d="M52 90 C58 86 70 86 76 90" stroke="#C89F7E" stroke-width="1.3"/>
+  <g fill="none" stroke="#B08D57" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <!-- left hand -->
+    <path d="M22 96 C24 88 30 84 38 84 C44 84 48 87 50 92 C51 96 50 100 47 103 C42 108 34 109 28 106 C24 103 22 100 22 96Z"/>
+    <path d="M38 84 C40 78 44 75 48 76 C51 77 52 81 50 85 C48 88 45 89 42 88"/>
+    <path d="M42 84 C43 76 45 70 48 68 C50 67 52 69 52 72 C52 78 51 84 50 88"/>
+    <path d="M46 86 C48 76 50 69 53 66 C55 65 57 67 57 70 C57 78 55 86 53 90"/>
+    <path d="M49 90 C52 82 55 76 57 74 C59 73 61 75 60 78 C59 84 56 90 54 94"/>
+    <path d="M50 94 C53 90 56 87 58 87 C60 87 61 89 60 91 C58 94 55 97 52 99"/>
+    <path d="M26 104 C30 107 36 108 42 106" stroke="#C89F7E" stroke-width="1.35"/>
+    <!-- right hand -->
+    <path d="M106 96 C104 88 98 84 90 84 C84 84 80 87 78 92 C77 96 78 100 81 103 C86 108 94 109 100 106 C104 103 106 100 106 96Z"/>
+    <path d="M90 84 C88 78 84 75 80 76 C77 77 76 81 78 85 C80 88 83 89 86 88"/>
+    <path d="M86 84 C85 76 83 70 80 68 C78 67 76 69 76 72 C76 78 77 84 78 88"/>
+    <path d="M82 86 C80 76 78 69 75 66 C73 65 71 67 71 70 C71 78 73 86 75 90"/>
+    <path d="M79 90 C76 82 73 76 71 74 C69 73 67 75 68 78 C69 84 72 90 74 94"/>
+    <path d="M78 94 C75 90 72 87 70 87 C68 87 67 89 68 91 C70 94 73 97 76 99"/>
+    <path d="M102 104 C98 107 92 108 86 106" stroke="#C89F7E" stroke-width="1.35"/>
+    <path d="M52 100 C58 94 70 94 76 100" stroke="#C89F7E" stroke-width="1.35"/>
   </g>
 </svg>
