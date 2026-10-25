@@ -45,7 +45,8 @@ export const site = {
     afterBodyAlt: 'После антицеллюлитного массажа — реакция тканей, Таганрог',
   },
 
-  yearsPractice: '{N}',
+  yearsPractice: '20',
+  yearsSince: 2006,
   clientsCount: '{N}',
 
   schedule: '{Пн–Сб 10:00–20:00}',
