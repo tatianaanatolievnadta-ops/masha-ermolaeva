@@ -1,4 +1,4 @@
----
+﻿---
 title: Лечебный массаж спины и шеи
 category: body
 shortResult: Меньше напряжения, легче дышать и спать
@@ -32,6 +32,7 @@ related:
   - anticellyulitnyj-massazh
   - programma-krasota-po-planu
 order: 5
+image: /images/services/massazh-spiny-i-shei.jpg
 ---
 
 Лечебный массаж спины и шеи — про самочувствие: меньше боли, спокойнее голова, легче засыпать. Это вторая опора моей работы рядом с лицом.

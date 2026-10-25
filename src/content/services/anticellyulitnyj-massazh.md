@@ -1,4 +1,4 @@
----
+﻿---
 title: Антицеллюлитный массаж
 category: body
 shortResult: Плотнее ткани, легче объёмы в курсе
@@ -32,6 +32,7 @@ related:
   - avtorskij-massazh
   - programma-krasota-po-planu
 order: 6
+image: /images/services/anticellyulitnyj-massazh.jpg
 ---
 
 Антицеллюлитный массаж работает курсом. Без обещаний «минус 10 кг» — с понятным планом и бережной техникой под ваши ткани.

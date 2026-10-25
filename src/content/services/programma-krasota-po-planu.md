@@ -1,4 +1,4 @@
----
+﻿---
 title: "Годовая программа «Красота по плану»"
 category: program
 shortResult: "Лицо, тело и уход — в одном годовом протоколе"
@@ -30,6 +30,7 @@ related:
   - massazh-spiny-i-shei
   - avtorskij-massazh
 order: 8
+image: /images/services/programma-krasota-po-planu.jpg
 ---
 
 «Красота по плану» — премиальный формат: не набор процедур, а протокол, в котором лицо, тело и нервная система связаны.

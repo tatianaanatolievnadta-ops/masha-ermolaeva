@@ -1,4 +1,4 @@
----
+﻿---
 title: Биорепаранты
 category: face
 shortResult: Восстановление плотности и качества кожи
@@ -32,6 +32,7 @@ related:
   - botulinoterapiya
   - pilingi
 order: 3
+image: /images/services/bioreparanty.jpg
 ---
 
 Биорепаранты — про качество кожи: плотность, восстановление, свежий вид. Не обещаю «минус 10 лет» — обещаю честный план и аккуратную работу.

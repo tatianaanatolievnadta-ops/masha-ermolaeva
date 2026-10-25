@@ -1,0 +1,31 @@
+---
+import { site } from '@/config/site';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+const query = encodeURIComponent(`Таганрог, 1-й Новый переулок, 24`);
+const src = `https://yandex.ru/map-widget/v1/?mode=search&text=${query}&z=17`;
+---
+
+<div class:list={['overflow-hidden rounded-3xl bg-powder', className]}>
+  <iframe
+    title={`Карта: ${site.addressFull}`}
+    src={src}
+    class="aspect-[4/3] h-full min-h-[280px] w-full border-0"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+  <p class="px-4 py-3 text-center text-sm text-taupe">
+    <a
+      href={site.social.yandexMaps}
+      class="text-gold hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Открыть в Яндекс Картах →
+    </a>
+  </p>
+</div>

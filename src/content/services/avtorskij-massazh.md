@@ -1,4 +1,4 @@
----
+﻿---
 title: Авторский массаж
 category: body
 shortResult: Лёгкость в теле и спокойная голова за сеанс
@@ -29,6 +29,7 @@ related:
   - anticellyulitnyj-massazh
   - programma-krasota-po-planu
 order: 7
+image: /images/services/avtorskij-massazh.jpg
 ---
 
 Авторский массаж — фишка кабинета: интрига остаётся, но вы заранее понимаете результат — лёгкость в теле и более спокойная голова.

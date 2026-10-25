@@ -1,4 +1,4 @@
----
+﻿---
 title: Биоревитализация
 category: face
 shortResult: Увлажнение и сияние кожи изнутри
@@ -32,6 +32,7 @@ related:
   - botulinoterapiya
   - pilingi
 order: 2
+image: /images/services/biorevitalizaciya.jpg
 ---
 
 Биоревитализация помогает коже выглядеть отдохнувшей: больше влаги, ровнее тон, мягче текстура. Работаю только препаратами от официальных дистрибьюторов.

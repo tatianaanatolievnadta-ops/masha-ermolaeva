@@ -19,6 +19,7 @@ const services = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })),
     related: z.array(z.string()).max(3),
     order: z.number().default(0),
+    image: z.string().optional(),
   }),
 });
 

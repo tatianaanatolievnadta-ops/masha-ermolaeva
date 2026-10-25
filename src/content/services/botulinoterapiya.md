@@ -1,4 +1,4 @@
----
+﻿---
 title: Ботулинотерапия
 category: face
 shortResult: Открытый взгляд без эффекта «маски»
@@ -33,6 +33,7 @@ related:
   - bioreparanty
   - pilingi
 order: 1
+image: /images/services/botulinoterapiya.jpg
 ---
 
 Ботулинотерапия — это не «укол по прайсу», а часть плана ухода за лицом. Сначала разбираем, что вас беспокоит, и только потом выбираем зоны и объём.

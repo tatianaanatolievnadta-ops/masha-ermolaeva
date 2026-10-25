@@ -13,8 +13,8 @@ export const site = {
 
   city: 'Таганрог',
   district: 'Таганрог',
-  address: '1-й Новый, 24',
-  addressFull: 'г. Таганрог, ул. 1-й Новый, 24',
+  address: '1-й Новый пер., 24',
+  addressFull: 'г. Таганрог, 1-й Новый пер., 24',
 
   phone: '+7 (951) 820-65-85',
   phoneHref: 'tel:+79518206585',
@@ -48,19 +48,20 @@ export const site = {
 
   yearsPractice: '20',
   yearsSince: 2006,
-  clientsCount: '{N}',
+  clientsCount: '500',
 
   schedule: '{Пн–Сб 10:00–20:00}',
   geo: {
-    lat: 0,
-    lng: 0,
+    lat: 47.2795,
+    lng: 38.9261,
   },
 
   social: {
     max: '{https://max.ru/...}',
     telegram: '{https://t.me/...}',
     vk: '{https://vk.com/...}',
-    yandexMaps: '{https://yandex.ru/maps/...}',
+    yandexMaps:
+      'https://yandex.ru/maps/971/taganrog/?text=%D0%A2%D0%B0%D0%B3%D0%B0%D0%BD%D1%80%D0%BE%D0%B3%2C%201-%D0%B9%20%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D1%83%D0%BB%D0%BE%D0%BA%2C%2024',
     twoGis: '{https://2gis.ru/...}',
   },
 

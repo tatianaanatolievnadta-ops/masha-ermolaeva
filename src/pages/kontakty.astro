@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BookingForm from '@/components/BookingForm.astro';
+import YandexMap from '@/components/YandexMap.astro';
 import { getCollection } from 'astro:content';
 import { site } from '@/config/site';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -41,8 +42,8 @@ const serviceOptions = services.map((s) => ({ slug: s.slug, title: s.data.title 
           <a href={site.social.telegram} class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
           <a href={site.social.vk} class="btn-ghost" target="_blank" rel="noopener noreferrer">VK</a>
         </div>
-        <div class="mt-10 flex aspect-[4/3] items-center justify-center rounded-3xl bg-powder text-sm text-taupe">
-          Виджет Яндекс Карты — после заполнения адреса в site.ts
+        <div class="mt-10">
+          <YandexMap />
         </div>
       </div>
       <div id="zapis">

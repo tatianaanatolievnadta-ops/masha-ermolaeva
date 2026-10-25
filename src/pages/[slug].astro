@@ -5,6 +5,7 @@ import BeforeAfter from '@/components/BeforeAfter.astro';
 import BookingForm from '@/components/BookingForm.astro';
 import { getCollection, render } from 'astro:content';
 import { site, titleService, descriptionTemplate } from '@/config/site';
+import { path } from '@/lib/paths';
 import {
   serviceSchema,
   faqSchema,
@@ -67,6 +68,23 @@ const contraFaq = service.data.contraindications.map((c) => ({
         <p class="mt-6 text-sm font-medium">{site.disclaimer}</p>
       </div>
     </header>
+
+    {
+      service.data.image && (
+        <div class="container-page mb-10 max-w-3xl">
+          <div class="overflow-hidden rounded-3xl bg-powder">
+            <img
+              src={path(service.data.image)}
+              alt={`${service.data.title} — ${service.data.shortResult}`}
+              width="960"
+              height="720"
+              class="aspect-[4/3] w-full object-cover"
+              loading="eager"
+            />
+          </div>
+        </div>
+      )
+    }
 
     <div class="container-page max-w-3xl space-y-14 pb-section md:pb-section-lg">
       <section class="reveal prose-custom">

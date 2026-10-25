@@ -1,4 +1,4 @@
----
+﻿---
 title: Пилинги
 category: face
 shortResult: Ровный тон и обновление кожи
@@ -32,6 +32,7 @@ related:
   - bioreparanty
   - botulinoterapiya
 order: 4
+image: /images/services/pilingi.jpg
 ---
 
 Пилинг — это контролируемое обновление, а не «сжечь и ждать». Подбираю силу и тип под кожу, сезон и ваш график.
