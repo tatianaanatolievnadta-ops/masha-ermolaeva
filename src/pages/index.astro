@@ -106,13 +106,14 @@ const description = descriptionTemplate(
           {site.slogan}
         </p>
         <h1>
-          Массажист и косметолог Мария Ермолаева: свежее лицо и лёгкое тело по плану
+          Массажист и косметолог в Таганроге — Мария Ермолаева: свежее лицо и
+          лёгкое тело по плану
         </h1>
         <p class="mt-6 max-w-xl text-taupe">
           Я — Мария Михайловна. Помогаю женщинам после 35 увидеть свою красоту без
           эффекта «переделанного» лица и вернуть телу лёгкость. Массаж и
           косметология в одних руках: сначала анамнез и план — потом результат,
-          который держится. Кабинет: {site.address}.
+          который держится. Кабинет: {site.addressFull}. Тел. {site.phone}.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href={path("/#zapis")} class="btn-primary">Записаться на консультацию</a>
@@ -255,23 +256,17 @@ const description = descriptionTemplate(
       <div class="reveal mx-auto max-w-2xl text-center">
         <h2>До и после</h2>
         <p class="mt-4 text-taupe">
-          Только с письменного согласия клиентов. Замените фото на реальные.
+          Антицеллюлитный массаж в Таганроге — с письменного согласия клиентки.
+          Двигайте ползунок.
         </p>
       </div>
-      <div class="mt-12 grid gap-10 lg:grid-cols-2">
+      <div class="mt-12 mx-auto max-w-lg">
         <BeforeAfter
-          beforeSrc="/images/placeholder-before.svg"
-          afterSrc="/images/placeholder-after.svg"
-          beforeAlt="До процедуры — пример (замените на фото клиентки с согласием)"
-          afterAlt="После процедуры — пример (замените на фото клиентки с согласием)"
-          caption="Пример слайдера. Загрузите реальные фото."
-        />
-        <BeforeAfter
-          beforeSrc="/images/placeholder-before.svg"
-          afterSrc="/images/placeholder-after.svg"
-          beforeAlt="До массажа — пример"
-          afterAlt="После массажа — пример"
-          caption="Второй кейс — после согласия клиента."
+          beforeSrc={path(site.photos.beforeBody)}
+          afterSrc={path(site.photos.afterBody)}
+          beforeAlt={site.photos.beforeBodyAlt}
+          afterAlt={site.photos.afterBodyAlt}
+          caption="Курс антицеллюлитного массажа · Мария Ермолаева, Таганрог"
         />
       </div>
     </div>

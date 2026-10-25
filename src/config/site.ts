@@ -11,10 +11,10 @@ export const site = {
   tagline:
     'Красота по плану: свежее лицо, лёгкое тело и спокойная голова — в одних руках',
 
-  city: '{город}',
-  district: '{район}',
+  city: 'Таганрог',
+  district: 'Таганрог',
   address: '1-й Новый, 24',
-  addressFull: '{город}, {район}, 1-й Новый, 24',
+  addressFull: 'г. Таганрог, ул. 1-й Новый, 24',
 
   phone: '+7 (951) 820-65-85',
   phoneHref: 'tel:+79518206585',
@@ -35,10 +35,14 @@ export const site = {
     work: '/images/masha/generated-hands.jpg',
     diploma: '/images/masha/diploma-photo.jpg',
     logo: '/images/logo-masha.svg',
-    heroAlt: 'Косметолог и массажист Мария Ермолаева',
-    aboutAlt: 'Мария Ермолаева — косметолог и массажист',
+    beforeBody: '/images/masha/body-before.jpg',
+    afterBody: '/images/masha/body-after.jpg',
+    heroAlt: 'Косметолог и массажист Мария Ермолаева в Таганроге',
+    aboutAlt: 'Мария Ермолаева — косметолог и массажист, Таганрог',
     workAlt: 'Мария Ермолаева за работой с клиенткой',
     diplomaAlt: 'Диплом Марии Ермолаевой',
+    beforeBodyAlt: 'До антицеллюлитного массажа — зона бедра и ягодиц',
+    afterBodyAlt: 'После антицеллюлитного массажа — реакция тканей, Таганрог',
   },
 
   yearsPractice: '{N}',
