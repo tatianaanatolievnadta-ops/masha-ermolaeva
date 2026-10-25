@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import YandexMap from '@/components/YandexMap.astro';
 import Accordion from '@/components/Accordion.astro';
-import BeforeAfter from '@/components/BeforeAfter.astro';
 import BookingForm from '@/components/BookingForm.astro';
 import { site, titleHome, descriptionTemplate } from '@/config/site';
 import { beautySalonSchema, faqSchema } from '@/lib/schema';
@@ -107,31 +106,29 @@ const description = descriptionTemplate(
           {site.slogan}
         </p>
         <h1>
-          Массажист и косметолог в Таганроге — Мария Ермолаева: свежее лицо и
-          лёгкое тело по плану
+          Уход за лицом и телом в Таганроге — Мария Ермолаева
         </h1>
         <p class="mt-6 max-w-xl text-taupe">
-          Я — Мария Михайловна. Помогаю женщинам после 35 увидеть свою красоту без
-          эффекта «переделанного» лица и вернуть телу лёгкость. Массаж и
-          косметология в одних руках: сначала анамнез и план — потом результат,
-          который держится. Кабинет: {site.addressFull}. Тел. {site.phone}.
+          Помогаю женщинам после 35 освежить лицо и вернуть телу лёгкость — без
+          эффекта «переделанности». Сначала коротко разбираем запрос, потом
+          выбираем, что подходит именно вам. Запись по телефону или через форму.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href={path("/#zapis")} class="btn-primary">Записаться на консультацию</a>
-          <a href={path("/#uslugi")} class="btn-secondary">Посмотреть услуги</a>
+          <a href={path("/#zapis")} class="btn-primary">Записаться</a>
+          <a href={path("/#uslugi")} class="btn-secondary">Услуги</a>
         </div>
         <ul class="mt-10 grid gap-4 sm:grid-cols-3">
           <li class="rounded-2xl bg-powder/50 p-4">
             <p class="font-display text-3xl text-gold">{site.yearsPractice}</p>
-            <p class="mt-1 text-sm text-taupe">лет в массаже · с {site.yearsSince}</p>
+            <p class="mt-1 text-sm text-taupe">лет практики · с {site.yearsSince}</p>
           </li>
           <li class="rounded-2xl bg-powder/50 p-4">
             <p class="font-display text-3xl text-gold">{site.clientsCount}+</p>
             <p class="mt-1 text-sm text-taupe">постоянных клиенток</p>
           </li>
           <li class="rounded-2xl bg-powder/50 p-4">
-            <p class="font-display text-xl leading-tight text-gold">Официальные</p>
-            <p class="mt-1 text-sm text-taupe">дистрибьюторы препаратов</p>
+            <p class="font-display text-xl leading-tight text-gold">Лицо + тело</p>
+            <p class="mt-1 text-sm text-taupe">в одном кабинете</p>
           </li>
         </ul>
       </div>
@@ -250,28 +247,6 @@ const description = descriptionTemplate(
           ))
         }
       </ol>
-    </div>
-  </section>
-
-  <!-- 6. Before / after -->
-  <section class="section">
-    <div class="container-page">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <h2>До и после</h2>
-        <p class="mt-4 text-taupe">
-          Антицеллюлитный массаж в Таганроге — с письменного согласия клиентки.
-          Двигайте ползунок.
-        </p>
-      </div>
-      <div class="mt-12 mx-auto max-w-lg">
-        <BeforeAfter
-          beforeSrc={path(site.photos.beforeBody)}
-          afterSrc={path(site.photos.afterBody)}
-          beforeAlt={site.photos.beforeBodyAlt}
-          afterAlt={site.photos.afterBodyAlt}
-          caption="Курс антицеллюлитного массажа · Мария Ермолаева, Таганрог"
-        />
-      </div>
     </div>
   </section>
 

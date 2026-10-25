@@ -6,8 +6,8 @@ import { path } from '@/lib/paths';
 ---
 
 <BaseLayout
-  title={`Обо мне — Мария ${site.lastName}, косметолог и массажист`}
-  description={`История, дипломы и подход Марии ${site.lastName}. ${site.tagline}`}
+  title={`Обо мне — Мария ${site.lastName}`}
+  description={`Подход Марии ${site.lastName}: уход за лицом и телом в уютном кабинете. ${site.city}.`}
   jsonLd={[
     personSchema(),
     breadcrumbSchema([
@@ -22,17 +22,17 @@ import { path } from '@/lib/paths';
         <h1>Обо мне</h1>
         <p class="mt-6 text-taupe">
           Я обожаю момент, когда клиентка смотрит в зеркало и говорит: «А я и не
-          знала, что так можно». Работаю с лицом и телом, потому что красота —
-          это не только кожа, но и лёгкость в спине, и спокойный сон. Ко мне
-          приезжают из разных районов, и почти все возвращаются.
+          знала, что так можно». Работаю с лицом и телом: свежая кожа, лёгкость в
+          спине, спокойнее голова. Ко мне возвращаются — и часто приезжают из
+          разных районов города.
         </p>
         <p class="mt-4 text-taupe">
-          Позиционирование: {site.tagline}
+          В кабинете спокойно и по делу: сначала разговор, потом то, что реально
+          нужно вам. Обучение и опыт подтверждаю при личной встрече — на сайте
+          дипломы не выкладываю.
         </p>
-        <p class="mt-4 text-sm text-taupe">
-          Маша дополнит личную историю, обучение и фото дипломов.
-        </p>
-        <a href={path("/#zapis")} class="btn-primary mt-8">Записаться на консультацию</a>
+        <p class="mt-4 text-taupe">{site.tagline}</p>
+        <a href={path('/#zapis')} class="btn-primary mt-8">Записаться</a>
       </div>
       <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-powder">
         <img
@@ -44,42 +44,5 @@ import { path } from '@/lib/paths';
         />
       </div>
     </div>
-
-    <div class="container-page mt-16">
-      <h2>Дипломы и сертификаты</h2>
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <a
-          href={path(site.photos.diploma)}
-          class="aspect-[3/4] overflow-hidden rounded-2xl bg-powder/60"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src={path(site.photos.diploma)}
-            alt={site.photos.diplomaAlt}
-            width="600"
-            height="800"
-            class="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </a>
-        <a
-          href={path(site.photos.work)}
-          class="aspect-[3/4] overflow-hidden rounded-2xl bg-powder/60"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src={path(site.photos.work)}
-            alt={site.photos.workAlt}
-            width="600"
-            height="800"
-            class="h-full w-full object-cover object-top"
-            loading="lazy"
-          />
-        </a>
-      </div>
-    </div>
   </section>
 </BaseLayout>
-

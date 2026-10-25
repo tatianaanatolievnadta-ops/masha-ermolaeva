@@ -43,14 +43,15 @@ import { path } from '@/lib/paths';
     <div class="mt-12 space-y-3 border-t border-caramel/30 pt-8 text-xs leading-relaxed text-taupe md:text-[12px]">
       <p class="font-medium text-graphite">{site.disclaimer}</p>
       <p>
-        Лицензия № {site.license.number} от {site.license.date}, выдана {site.license.issuedBy}.
+        Частный кабинет ухода за лицом и телом. Подробности процедур, подготовка и
+        ограничения — только на личной консультации.
       </p>
-      <p>© {new Date().getFullYear()} {site.fullName}. Все права защищены.</p>
+      <p>© {new Date().getFullYear()} {site.name}. Все права защищены.</p>
       <p>
         Сайт сделала
         <a href={site.makerCabinetUrl} class="underline hover:text-gold" target="_blank" rel="noopener noreferrer"
           >{site.makerName}</a
-        >. За услуги отвечает {site.fullName}.
+        >.
       </p>
     </div>
   </div>

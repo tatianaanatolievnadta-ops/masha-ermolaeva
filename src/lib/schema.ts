@@ -4,7 +4,7 @@ export function beautySalonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'BeautySalon',
-    name: `${site.firstName} ${site.lastName} — косметолог и массажист`,
+    name: `${site.firstName} ${site.lastName} — уход за лицом и телом`,
     description: site.tagline,
     url: site.domain,
     telephone: site.phone,

@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Accordion from '@/components/Accordion.astro';
-import BeforeAfter from '@/components/BeforeAfter.astro';
 import BookingForm from '@/components/BookingForm.astro';
 import { getCollection, render } from 'astro:content';
 import { site, titleService, descriptionTemplate } from '@/config/site';
@@ -144,17 +143,6 @@ const contraFaq = service.data.contraindications.map((c) => ({
           Точную стоимость после анамнеза. Прайс на странице
           <a href="/ceny/" class="underline">«Цены»</a>.
         </p>
-      </section>
-
-      <section class="reveal">
-        <h2 class="mb-6">До и после</h2>
-        <BeforeAfter
-          beforeSrc="/images/placeholder-before.svg"
-          afterSrc="/images/placeholder-after.svg"
-          beforeAlt={`${service.data.title}: до процедуры`}
-          afterAlt={`${service.data.title}: после процедуры`}
-          caption="Фото только с письменного согласия. Замените на реальные."
-        />
       </section>
 
       <section class="reveal">

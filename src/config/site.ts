@@ -9,7 +9,7 @@ export const site = {
   fullName: 'Ермолаева Мария Михайловна',
   slogan: 'Красота по плану',
   tagline:
-    'Красота по плану: свежее лицо, лёгкое тело и спокойная голова — в одних руках',
+    'Свежее лицо, лёгкое тело и спокойная голова — в уютном кабинете, без лишнего шума',
 
   city: 'Таганрог',
   district: 'Таганрог',
@@ -34,17 +34,17 @@ export const site = {
     about: '/images/masha/portrait-warm.jpg',
     work: '/images/masha/generated-hands.jpg',
     diploma: '/images/masha/diploma-photo.jpg',
-    logo: '/images/logo-masha.jpg',
-    logoMark: '/images/logo-masha-massage-v2.jpg',
-    beforeBody: '/images/masha/body-before.jpg',
-    afterBody: '/images/masha/body-after.jpg',
-    heroAlt: 'Косметолог и массажист Мария Ермолаева в Таганроге',
-    aboutAlt: 'Мария Ермолаева — косметолог и массажист, Таганрог',
-    workAlt: 'Мария Ермолаева за работой с клиенткой',
-    diplomaAlt: 'Диплом Марии Ермолаевой',
-    beforeBodyAlt: 'До антицеллюлитного массажа — зона бедра и ягодиц',
-    afterBodyAlt: 'После антицеллюлитного массажа — реакция тканей, Таганрог',
+    logo: '/images/logo-masha-hands-heart.jpg',
+    logoMark: '/images/logo-masha-hands-heart.jpg',
+    heroAlt: 'Мария Ермолаева — уход за лицом и телом, Таганрог',
+    aboutAlt: 'Мария Ермолаева, Таганрог',
+    workAlt: 'Работа в кабинете',
   },
+
+  /** Публично не показываем: лицензии нет, дипломы — только по запросу */
+  showLicense: false,
+  showDiplomas: false,
+  showBeforeAfter: false,
 
   yearsPractice: '20',
   yearsSince: 2006,
@@ -65,14 +65,8 @@ export const site = {
     twoGis: '{https://2gis.ru/...}',
   },
 
-  license: {
-    number: '{номер}',
-    date: '{дата}',
-    issuedBy: '{кем выдана}',
-  },
-
   disclaimer:
-    'Имеются противопоказания. Необходима консультация специалиста.',
+    'Результат индивидуален. Есть противопоказания — обсуждаем на личной консультации.',
 
   yandexMetrikaId: '{XXXXXX}',
   telegramBotToken: '',
@@ -93,7 +87,7 @@ export const site = {
 export type SiteConfig = typeof site;
 
 export function titleHome() {
-  return `Массажист и косметолог ${site.district}, ${site.city} — Мария Ермолаева`;
+  return `Уход за лицом и телом · ${site.city} — Мария Ермолаева`;
 }
 
 export function titleService(serviceName: string, priceFrom: number) {
@@ -101,5 +95,5 @@ export function titleService(serviceName: string, priceFrom: number) {
 }
 
 export function descriptionTemplate(result: string) {
-  return `${result} Массаж и косметология в одних руках. Анамнез, план ухода, запись онлайн. ${site.address}, ${site.city}. Тел. ${site.phone}.`;
+  return `${result} Уход за лицом и телом в кабинете. Запись: ${site.phone}, ${site.city}.`;
 }
