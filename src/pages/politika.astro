@@ -1,45 +1,90 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalNav from '@/components/LegalNav.astro';
 import { site } from '@/config/site';
+import { path } from '@/lib/paths';
+
+const revised = '25 октября 2026 г.';
+const siteUrl = site.githubPagesBase;
 ---
 
 <BaseLayout
-  title="Политика обработки персональных данных"
+  title={`Политика обработки персональных данных — ${site.name}`}
   description="Политика обработки персональных данных в соответствии с 152-ФЗ."
   noindex={true}
 >
   <section class="section">
     <div class="container-page max-w-3xl space-y-6 text-taupe">
+      <p class="text-sm font-medium uppercase tracking-[0.18em] text-caramel">Документы</p>
       <h1 class="text-graphite">Политика обработки персональных данных</h1>
+      <p>В соответствии с 152-ФЗ. Редакция от {revised}.</p>
+
+      <h2 class="!text-2xl text-graphite">1. Оператор</h2>
       <p>
-        Настоящая политика определяет порядок обработки персональных данных
-        посетителей сайта {site.domain} оператором — Мария {site.lastName}
-        ({site.addressFull}, {site.phone}, {site.email}).
+        Оператор: {site.fullName}. Адрес приёма: {site.addressFull}. Телефон:
+        <a href={site.phoneHref} class="text-gold underline">{site.phone}</a>.
+        Сайт: {siteUrl}.
       </p>
-      <h2 class="!text-2xl text-graphite">Какие данные собираем</h2>
+
+      <h2 class="!text-2xl text-graphite">2. Какие данные обрабатываем</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>имя, телефон;</li>
+        <li>выбранная услуга, удобное время, способ связи;</li>
+        <li>текст обращения в мессенджерах;</li>
+        <li>сведения, необходимые для безопасной процедуры (анамнез) — при очном визите;</li>
+        <li>технические данные и cookie (в т.ч. Яндекс Метрика).</li>
+      </ul>
+
+      <h2 class="!text-2xl text-graphite">3. Цели обработки</h2>
       <p>
-        Имя, телефон, выбранная услуга, удобное время связи, предпочтительный
-        способ связи — только из формы записи и при обращении в мессенджеры.
+        Запись на консультацию и процедуры, обратная связь, оказание услуг,
+        исполнение договора-оферты, улучшение сайта. Рекламная рассылка — только
+        при отдельном согласии.
       </p>
-      <h2 class="!text-2xl text-graphite">Цели обработки</h2>
+
+      <h2 class="!text-2xl text-graphite">4. Правовые основания</h2>
       <p>
-        Связь для записи на консультацию и процедуры, ответы на обращения,
-        улучшение качества сервиса. Аналитика — Яндекс Метрика (cookie).
+        Согласие субъекта ПДн; исполнение договора (оферты); законные интересы
+        оператора в рамках сайта — в пределах 152-ФЗ.
       </p>
-      <h2 class="!text-2xl text-graphite">Хранение</h2>
+
+      <h2 class="!text-2xl text-graphite">5. Хранение и передача</h2>
       <p>
-        Данные форм хранятся на серверах в Российской Федерации. Срок — до
-        достижения цели обработки или отзыва согласия, если иное не требуется
-        законом.
+        Данные форм по возможности хранятся на серверах в Российской Федерации.
+        Срок — до достижения цели либо отзыва согласия, если иное не требуется
+        законом (ориентир: срок обращения + до 3 лет для деловой переписки).
       </p>
-      <h2 class="!text-2xl text-graphite">Права субъекта</h2>
       <p>
-        Вы можете запросить уточнение, блокирование или удаление данных,
-        написав на {site.email} или сообщив в мессенджер.
+        Передача третьим лицам — только если нужно для оказания услуги (например,
+        платёжный сервис) или по требованию закона. Метрика — по правилам Яндекса.
       </p>
-      <p class="text-sm">
-        Текст-шаблон. Перед запуском согласуйте с юристом.
+
+      <h2 class="!text-2xl text-graphite">6. Права субъекта</h2>
+      <p>
+        Вы вправе запросить уточнение, блокирование или удаление данных, отозвать
+        согласие — по телефону {site.phone} или в мессенджере. Ответ — в разумный
+        срок, ориентир до 10 рабочих дней.
       </p>
+
+      <h2 class="!text-2xl text-graphite">7. Cookie</h2>
+      <p>
+        Подробнее —
+        <a href={path('/cookies/')} class="text-gold underline">политика cookie</a>.
+      </p>
+
+      <p>
+        Связанные документы:
+        <a href={path('/soglasie/')} class="text-gold underline">согласие</a>,
+        <a href={path('/oferta/')} class="text-gold underline">оферта</a>.
+      </p>
+
+      <p class="text-sm">Шаблон. Перед запуском согласуйте с юристом.</p>
+
+      <LegalNav />
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href={path('/#zapis')} class="btn-primary">Записаться</a>
+        <a href={path('/')} class="btn-secondary">На главную</a>
+      </div>
     </div>
   </section>
 </BaseLayout>

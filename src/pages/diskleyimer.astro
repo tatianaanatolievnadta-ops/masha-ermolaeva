@@ -1,0 +1,70 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalNav from '@/components/LegalNav.astro';
+import { site } from '@/config/site';
+import { path } from '@/lib/paths';
+
+const revised = '25 октября 2026 г.';
+---
+
+<BaseLayout
+  title={`Дисклеймер — ${site.name}`}
+  description="Информация сайта не заменяет очную консультацию. Имеются противопоказания."
+>
+  <section class="section">
+    <div class="container-page max-w-3xl space-y-6 text-taupe">
+      <p class="text-sm font-medium uppercase tracking-[0.18em] text-caramel">Документы</p>
+      <h1 class="text-graphite">Дисклеймер</h1>
+      <p>Редакция от {revised}.</p>
+
+      <h2 class="!text-2xl text-graphite">Информация, а не диагноз</h2>
+      <p>
+        Материалы сайта носят информационный характер и не заменяют очную консультацию
+        специалиста. Решение о процедуре принимается только после анамнеза.
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Противопоказания</h2>
+      <p class="font-medium text-graphite">{site.disclaimer}</p>
+      <p>
+        Перед инъекционными и иными процедурами обязательно сообщите о заболеваниях,
+        беременности, лекарствах и аллергиях. При наличии противопоказаний процедура
+        не проводится.
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Результат индивидуален</h2>
+      <p>
+        Сроки и выраженность эффекта зависят от организма, возраста, образа жизни и
+        соблюдения рекомендаций. Фото «до/после» — с согласия клиентов; ваш результат
+        может отличаться.
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Препараты и названия</h2>
+      <p>
+        На сайте не указываются торговые наименования рецептурных препаратов. Выбор
+        протокола — на консультации. Используются препараты от официальных
+        дистрибьюторов после обучения.
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Лицензия</h2>
+      <p>
+        Лицензия № {site.license.number} от {site.license.date}, выдана
+        {site.license.issuedBy}. (Реквизиты уточняются Марией перед публикацией
+        рекламы медицинских услуг.)
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Ответственность за услуги и сайт</h2>
+      <p>
+        За оказание услуг отвечает {site.fullName}. Сайт сделала
+        <a href={site.makerCabinetUrl} class="text-gold underline" target="_blank" rel="noopener noreferrer"
+          >{site.makerName}</a
+        >.
+      </p>
+
+      <LegalNav />
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href={path('/#zapis')} class="btn-primary">Записаться</a>
+        <a href={path('/')} class="btn-secondary">На главную</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalNav from '@/components/LegalNav.astro';
+import { site } from '@/config/site';
+import { path } from '@/lib/paths';
+
+const revised = '25 октября 2026 г.';
+---
+
+<BaseLayout
+  title={`Политика cookie — ${site.name}`}
+  description="Использование cookie и Яндекс Метрики на сайте."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container-page max-w-3xl space-y-6 text-taupe">
+      <p class="text-sm font-medium uppercase tracking-[0.18em] text-caramel">Документы</p>
+      <h1 class="text-graphite">Политика использования cookie</h1>
+      <p>Редакция от {revised}.</p>
+
+      <h2 class="!text-2xl text-graphite">Что такое cookie</h2>
+      <p>
+        Cookie — небольшие файлы, которые сайт сохраняет в браузере для работы
+        страниц, запоминания согласия и аналитики.
+      </p>
+
+      <h2 class="!text-2xl text-graphite">Какие cookie используем</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Технические — для корректной работы сайта и баннера согласия.</li>
+        <li>
+          Аналитические — Яндекс Метрика (в том числе Вебвизор), если на сайте
+          указан идентификатор счётчика. Цели: посещаемость, удобство страниц,
+          достижение цели «запись».
+        </li>
+      </ul>
+
+      <h2 class="!text-2xl text-graphite">Как отключить</h2>
+      <p>
+        Вы можете удалить или ограничить cookie в настройках браузера. Часть функций
+        сайта при этом может работать хуже. Отказ от аналитики не мешает записаться
+        по телефону {site.phone}.
+      </p>
+
+      <p>
+        Подробнее об обработке данных —
+        <a href={path('/politika/')} class="text-gold underline">политика ПДн</a>.
+      </p>
+
+      <LegalNav />
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href={path('/')} class="btn-secondary">На главную</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

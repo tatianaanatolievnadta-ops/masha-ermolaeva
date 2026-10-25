@@ -1,0 +1,24 @@
+---
+import { path } from '@/lib/paths';
+
+const links = [
+  { href: '/oferta/', label: 'Оферта' },
+  { href: '/politika/', label: 'Политика' },
+  { href: '/soglasie/', label: 'Согласие на ПДн' },
+  { href: '/diskleyimer/', label: 'Дисклеймер' },
+  { href: '/cookies/', label: 'Cookie' },
+];
+---
+
+<nav class="mt-12 flex flex-wrap gap-x-3 gap-y-2 border-t border-powder pt-6 text-sm text-taupe" aria-label="Документы">
+  {
+    links.map((l, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true">·</span>}
+        <a href={path(l.href)} class="hover:text-gold">
+          {l.label}
+        </a>
+      </>
+    ))
+  }
+</nav>

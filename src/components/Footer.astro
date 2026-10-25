@@ -10,7 +10,7 @@ import { path } from '@/lib/paths';
         <p class="font-display text-2xl font-semibold">Мария {site.lastName}</p>
         <p class="mt-2 text-taupe">{site.slogan}</p>
         <p class="mt-4 text-sm text-taupe">
-          Косметолог и массажист в {site.district}, {site.city}
+          Косметолог и массажист в {site.city}
         </p>
       </div>
       <div>
@@ -29,8 +29,11 @@ import { path } from '@/lib/paths';
       <div>
         <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-taupe">Документы</p>
         <ul class="space-y-2 text-sm">
-          <li><a href={path('/politika/')} class="hover:text-gold">Политика обработки персональных данных</a></li>
-          <li><a href={path('/soglasie/')} class="hover:text-gold">Согласие на обработку данных</a></li>
+          <li><a href={path('/oferta/')} class="hover:text-gold">Публичная оферта</a></li>
+          <li><a href={path('/politika/')} class="hover:text-gold">Политика персональных данных</a></li>
+          <li><a href={path('/soglasie/')} class="hover:text-gold">Согласие на обработку ПДн</a></li>
+          <li><a href={path('/diskleyimer/')} class="hover:text-gold">Дисклеймер</a></li>
+          <li><a href={path('/cookies/')} class="hover:text-gold">Политика cookie</a></li>
           <li><a href={path('/sertifikaty/')} class="hover:text-gold">Подарочные сертификаты</a></li>
           <li><a href={path('/ceny/')} class="hover:text-gold">Цены</a></li>
         </ul>

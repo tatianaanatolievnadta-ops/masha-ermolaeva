@@ -1,32 +1,65 @@
 ﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import LegalNav from '@/components/LegalNav.astro';
 import { site } from '@/config/site';
 import { path } from '@/lib/paths';
+
+const revised = '25 октября 2026 г.';
 ---
 
 <BaseLayout
-  title="Согласие на обработку персональных данных"
-  description="Согласие на обработку персональных данных для записи на консультацию."
+  title={`Согласие на обработку персональных данных — ${site.name}`}
+  description="Согласие на обработку персональных данных для записи на консультацию и услуги."
   noindex={true}
 >
   <section class="section">
     <div class="container-page max-w-3xl space-y-6 text-taupe">
+      <p class="text-sm font-medium uppercase tracking-[0.18em] text-caramel">Документы</p>
       <h1 class="text-graphite">Согласие на обработку персональных данных</h1>
+      <p>Редакция от {revised}.</p>
+
       <p>
-        Я даю согласие Марии {site.lastName} ({site.addressFull}) на обработку
-        моих персональных данных (имя, телефон, сведения из формы записи) в целях
-        обратной связи и записи на консультацию/процедуры.
+        Я, оставляя заявку на сайте или обращаясь по телефону / в мессенджере, даю
+        согласие {site.fullName} ({site.addressFull}, тел. {site.phone}) на обработку
+        моих персональных данных:
       </p>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>имя, номер телефона;</li>
+        <li>сведения из формы записи (услуга, удобное время, способ связи);</li>
+        <li>содержание переписки по записи;</li>
+        <li>при очном визите — сведения анамнеза, необходимые для безопасной процедуры.</li>
+      </ul>
+
+      <h2 class="!text-2xl text-graphite">Цели</h2>
       <p>
-        Согласие действует до его отзыва. Отозвать можно письмом на
-        {site.email} или сообщением в мессенджер.
+        Связь для записи, консультация, оказание услуг косметологии и массажа,
+        исполнение
+        <a href={path('/oferta/')} class="text-gold underline">публичной оферты</a>.
       </p>
+
+      <h2 class="!text-2xl text-graphite">Срок и отзыв</h2>
       <p>
-        С политикой обработки персональных данных ознакомлен(а):
-        <a href={path("/politika/")} class="text-gold underline">/politika/</a>.
+        Согласие действует до его отзыва либо до достижения целей обработки.
+        Отозвать можно по телефону или сообщением в мессенджер. С политикой
+        ознакомлен(а):
+        <a href={path('/politika/')} class="text-gold underline">политика ПДн</a>.
       </p>
+
+      <blockquote class="rounded-2xl border border-powder bg-powder/40 p-5 text-graphite">
+        Принимаю
+        <a href={path('/oferta/')} class="text-gold underline">оферту</a>,
+        <a href={path('/diskleyimer/')} class="text-gold underline">дисклеймер</a>
+        и даю согласие на обработку персональных данных. Понимаю, что
+        {site.disclaimer.toLowerCase()}
+      </blockquote>
+
       <p class="text-sm">Шаблон. Перед запуском — юрист.</p>
+
+      <LegalNav />
+      <div class="flex flex-wrap gap-3 pt-4">
+        <a href={path('/#zapis')} class="btn-primary">Записаться</a>
+        <a href={path('/')} class="btn-secondary">На главную</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
-
