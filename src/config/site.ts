@@ -1,26 +1,44 @@
 /**
- * Все данные в {скобках} из SPEC — заполняет Маша.
- * Меняйте только этот файл (и Markdown в src/content).
+ * Контакты и тексты бренда. Правки — здесь и в src/content.
  */
 export const site = {
-  name: 'Мария {Фамилия}',
+  name: 'Мария Ермолаева',
   firstName: 'Мария',
-  lastName: '{Фамилия}',
+  middleName: 'Михайловна',
+  lastName: 'Ермолаева',
+  fullName: 'Ермолаева Мария Михайловна',
   slogan: 'Красота по плану',
   tagline:
     'Красота по плану: свежее лицо, лёгкое тело и спокойная голова — в одних руках',
 
   city: '{город}',
   district: '{район}',
-  address: '{адрес кабинета}',
-  addressFull: '{город}, {район}, {адрес кабинета}',
+  address: '1-й Новый, 24',
+  addressFull: '{город}, {район}, 1-й Новый, 24',
 
-  phone: '{+7 (XXX) XXX-XX-XX}',
-  phoneHref: 'tel:+7XXXXXXXXXX',
+  phone: '+7 (951) 820-65-85',
+  phoneHref: 'tel:+79518206585',
   email: '{email@example.ru}',
 
   domain: 'https://krasota-po-planu.ru',
-  ogImage: '/images/og-default.jpg',
+  /** Пока деплой на GitHub Pages Татьяны — обновите после публикации домена */
+  githubPagesBase: 'https://tatianaanatolievnadta-ops.github.io/masha-ermolaeva',
+  /** Локально и до публикации Pages — относительный путь; после деплоя можно вернуть github.io */
+  makerUrl: '/tatiana-zhelikhovskaya/',
+  makerName: 'Татьяна Желиховская',
+  ogImage: '/images/masha/portrait-hero.jpg',
+
+  photos: {
+    hero: '/images/masha/portrait-hero.jpg',
+    about: '/images/masha/portrait-warm.jpg',
+    work: '/images/masha/generated-hands.jpg',
+    diploma: '/images/masha/diploma-photo.jpg',
+    logo: '/images/logo-masha.svg',
+    heroAlt: 'Косметолог и массажист Мария Ермолаева',
+    aboutAlt: 'Мария Ермолаева — косметолог и массажист',
+    workAlt: 'Мария Ермолаева за работой с клиенткой',
+    diplomaAlt: 'Диплом Марии Ермолаевой',
+  },
 
   yearsPractice: '{N}',
   clientsCount: '{N}',
@@ -49,7 +67,7 @@ export const site = {
     'Имеются противопоказания. Необходима консультация специалиста.',
 
   yandexMetrikaId: '{XXXXXX}',
-  telegramBotToken: '', // только в env на сервере
+  telegramBotToken: '',
   telegramChatId: '',
 
   authorMassageName: '{Название авторского массажа}',
@@ -67,13 +85,13 @@ export const site = {
 export type SiteConfig = typeof site;
 
 export function titleHome() {
-  return `Косметолог и массажист в ${site.district}, ${site.city} — Мария ${site.lastName}`;
+  return `Массажист и косметолог ${site.district}, ${site.city} — Мария Ермолаева`;
 }
 
 export function titleService(serviceName: string, priceFrom: number) {
-  return `${serviceName} в ${site.city} — цена от ${priceFrom} ₽ | Мария ${site.lastName}`;
+  return `${serviceName} в ${site.city} — от ${priceFrom} ₽ | Мария Ермолаева`;
 }
 
 export function descriptionTemplate(result: string) {
-  return `${result} Подробный анамнез, сертифицированные препараты, запись онлайн. ${site.district}, ${site.city}.`;
+  return `${result} Массаж и косметология в одних руках. Анамнез, план ухода, запись онлайн. ${site.address}, ${site.city}. Тел. ${site.phone}.`;
 }

@@ -105,12 +105,13 @@ const description = descriptionTemplate(
           {site.slogan}
         </p>
         <h1>
-          Косметолог и массажист в {site.district}: свежее лицо и лёгкое тело по плану
+          Массажист и косметолог Мария Ермолаева: свежее лицо и лёгкое тело по плану
         </h1>
         <p class="mt-6 max-w-xl text-taupe">
-          Я — Мария. Помогаю женщинам после 35 увидеть свою красоту без эффекта
-          «переделанного» лица и вернуть телу лёгкость. Сначала анамнез и план —
-          потом результат, который держится.
+          Я — Мария Михайловна. Помогаю женщинам после 35 увидеть свою красоту без
+          эффекта «переделанного» лица и вернуть телу лёгкость. Массаж и
+          косметология в одних руках: сначала анамнез и план — потом результат,
+          который держится. Кабинет: {site.address}.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#zapis" class="btn-primary">Записаться на консультацию</a>
@@ -137,11 +138,11 @@ const description = descriptionTemplate(
           data-parallax
         >
           <img
-            src="/images/portrait-placeholder.svg"
-            alt={`Косметолог Мария ${site.lastName}, портрет`}
+            src={site.photos.hero}
+            alt={site.photos.heroAlt}
             width="800"
             height="1000"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover object-top"
             fetchpriority="high"
           />
         </div>
@@ -280,11 +281,11 @@ const description = descriptionTemplate(
     <div class="container-page grid items-center gap-10 lg:grid-cols-2">
       <div class="reveal aspect-[4/5] overflow-hidden rounded-[2rem] bg-powder">
         <img
-          src="/images/portrait-placeholder.svg"
-          alt="Мария за работой"
+          src={site.photos.about}
+          alt={site.photos.aboutAlt}
           width="800"
           height="1000"
-          class="h-full w-full object-cover"
+          class="h-full w-full object-cover object-top"
           loading="lazy"
         />
       </div>

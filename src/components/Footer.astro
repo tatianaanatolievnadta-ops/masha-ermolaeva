@@ -41,7 +41,13 @@ import { site } from '@/config/site';
       <p>
         Лицензия № {site.license.number} от {site.license.date}, выдана {site.license.issuedBy}.
       </p>
-      <p>© {new Date().getFullYear()} Мария {site.lastName}. Все права защищены.</p>
+      <p>© {new Date().getFullYear()} {site.fullName}. Все права защищены.</p>
+      <p>
+        Сайт сделала
+        <a href={site.makerUrl} class="underline hover:text-gold" target="_blank" rel="noopener noreferrer"
+          >{site.makerName}</a
+        >. За услуги отвечает {site.fullName}.
+      </p>
     </div>
   </div>
 </footer>
