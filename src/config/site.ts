@@ -35,6 +35,7 @@ export const site = {
     work: '/images/masha/generated-hands.jpg',
     diploma: '/images/masha/diploma-photo.jpg',
     logo: '/images/logo-masha.svg',
+    logoMark: '/images/logo-masha-mark.jpg',
     beforeBody: '/images/masha/body-before.jpg',
     afterBody: '/images/masha/body-after.jpg',
     heroAlt: 'Косметолог и массажист Мария Ермолаева в Таганроге',
