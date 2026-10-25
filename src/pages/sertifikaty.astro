@@ -1,7 +1,8 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 import { breadcrumbSchema } from '@/lib/schema';
+import { path } from '@/lib/paths';
 ---
 
 <BaseLayout
@@ -21,7 +22,8 @@ import { breadcrumbSchema } from '@/lib/schema';
         уточняйте при записи.
       </p>
       <p class="mt-4 text-sm font-medium">{site.disclaimer}</p>
-      <a href="/#zapis" class="btn-primary mt-10">Оформить сертификат</a>
+      <a href={path("/#zapis")} class="btn-primary mt-10">Оформить сертификат</a>
     </div>
   </section>
 </BaseLayout>
+

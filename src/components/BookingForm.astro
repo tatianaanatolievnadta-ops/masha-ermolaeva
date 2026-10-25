@@ -1,5 +1,6 @@
 ---
 import { site } from '@/config/site';
+import { path } from '@/lib/paths';
 
 interface Props {
   services?: { slug: string; title: string }[];
@@ -7,14 +8,17 @@ interface Props {
 }
 
 const { services = [], selected } = Astro.props;
+const soglasie = path('/soglasie/');
+const politika = path('/politika/');
 ---
 
 <form
   id="booking-form"
   class="space-y-5 rounded-3xl bg-powder/50 p-6 md:p-8"
   method="POST"
-  action="/api/booking"
+  action="#"
   novalidate
+  data-phone={site.phoneHref}
 >
   <div>
     <label for="name" class="mb-1.5 block text-sm font-medium">Имя</label>
@@ -104,9 +108,9 @@ const { services = [], selected } = Astro.props;
     />
     <span>
       Соглашаюсь на
-      <a href="/soglasie/" class="underline hover:text-gold">обработку персональных данных</a>
+      <a href={soglasie} class="underline hover:text-gold">обработку персональных данных</a>
       и принимаю
-      <a href="/politika/" class="underline hover:text-gold">политику</a>
+      <a href={politika} class="underline hover:text-gold">политику</a>
     </span>
   </label>
 
@@ -138,23 +142,17 @@ const { services = [], selected } = Astro.props;
 
     try {
       const data = new FormData(form);
-      const res = await fetch('/api/booking', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(data.entries())),
-      });
-      if (!res.ok) throw new Error('fail');
-
+      // На GitHub Pages серверной отправки нет — копируем заявку в WhatsApp/звонок
+      const phone = form.dataset.phone || 'tel:+79518206585';
       if (status) {
-        status.textContent = 'Заявка отправлена. Я свяжусь с вами в ближайшее время.';
+        status.innerHTML =
+          'Онлайн-заявка на этом хостинге пока без сервера. <a class="underline" href="' +
+          phone +
+          '">Позвоните</a> или напишите в MAX / Telegram / VK — данные формы уже у вас на экране.';
         status.className = 'text-sm text-graphite';
       }
-      form.reset();
 
-      // Яндекс Метрика — цель «zapis»
-      // @ts-expect-error ym global
-      if (typeof window.ym === 'function') {
-        // @ts-expect-error
+      if (typeof window.ym === 'function' && window.__YM_ID__) {
         window.ym(window.__YM_ID__, 'reachGoal', 'zapis');
       }
     } catch {

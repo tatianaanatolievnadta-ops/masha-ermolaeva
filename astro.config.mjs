@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import node from '@astrojs/node';
 
+// GitHub Pages: https://tatianaanatolievnadta-ops.github.io/masha-ermolaeva/
+// После своего домена .ru — уберите base и смените site.
 export default defineConfig({
-  site: 'https://krasota-po-planu.ru',
+  site: 'https://tatianaanatolievnadta-ops.github.io',
+  base: '/masha-ermolaeva',
   trailingSlash: 'always',
   output: 'static',
-  adapter: node({ mode: 'standalone' }),
   integrations: [
     tailwind({
       applyBaseStyles: false,

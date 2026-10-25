@@ -23,8 +23,9 @@ export const site = {
   domain: 'https://krasota-po-planu.ru',
   /** Пока деплой на GitHub Pages Татьяны — обновите после публикации домена */
   githubPagesBase: 'https://tatianaanatolievnadta-ops.github.io/masha-ermolaeva',
-  /** Локально и до публикации Pages — относительный путь; после деплоя можно вернуть github.io */
-  makerUrl: '/tatiana-zhelikhovskaya/',
+  /** Главный кабинет Татьяны Анатольевны */
+  makerUrl: 'https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/',
+  makerCabinetUrl: 'https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/portfolio.html',
   makerName: 'Татьяна Желиховская',
   ogImage: '/images/masha/portrait-hero.jpg',
 

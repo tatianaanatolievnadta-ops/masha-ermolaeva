@@ -1,5 +1,6 @@
 ---
 import { site } from '@/config/site';
+import { path } from '@/lib/paths';
 ---
 
 <footer class="border-t border-powder bg-powder/40">
@@ -28,10 +29,10 @@ import { site } from '@/config/site';
       <div>
         <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-taupe">Документы</p>
         <ul class="space-y-2 text-sm">
-          <li><a href="/politika/" class="hover:text-gold">Политика обработки персональных данных</a></li>
-          <li><a href="/soglasie/" class="hover:text-gold">Согласие на обработку данных</a></li>
-          <li><a href="/sertifikaty/" class="hover:text-gold">Подарочные сертификаты</a></li>
-          <li><a href="/ceny/" class="hover:text-gold">Цены</a></li>
+          <li><a href={path('/politika/')} class="hover:text-gold">Политика обработки персональных данных</a></li>
+          <li><a href={path('/soglasie/')} class="hover:text-gold">Согласие на обработку данных</a></li>
+          <li><a href={path('/sertifikaty/')} class="hover:text-gold">Подарочные сертификаты</a></li>
+          <li><a href={path('/ceny/')} class="hover:text-gold">Цены</a></li>
         </ul>
       </div>
     </div>
@@ -44,7 +45,7 @@ import { site } from '@/config/site';
       <p>© {new Date().getFullYear()} {site.fullName}. Все права защищены.</p>
       <p>
         Сайт сделала
-        <a href={site.makerUrl} class="underline hover:text-gold" target="_blank" rel="noopener noreferrer"
+        <a href={site.makerCabinetUrl} class="underline hover:text-gold" target="_blank" rel="noopener noreferrer"
           >{site.makerName}</a
         >. За услуги отвечает {site.fullName}.
       </p>

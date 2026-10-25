@@ -1,8 +1,9 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { site } from '@/config/site';
 import { breadcrumbSchema } from '@/lib/schema';
+import { path } from '@/lib/paths';
 
 const reviews = await getCollection('reviews');
 ---
@@ -41,7 +42,8 @@ const reviews = await getCollection('reviews');
           ))
         }
       </div>
-      <a href="/#zapis" class="btn-primary mt-12">Записаться</a>
+      <a href={path("/#zapis")} class="btn-primary mt-12">Записаться</a>
     </div>
   </section>
 </BaseLayout>
+

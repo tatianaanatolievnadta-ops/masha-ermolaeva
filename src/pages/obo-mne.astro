@@ -1,7 +1,8 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 import { personSchema, breadcrumbSchema } from '@/lib/schema';
+import { path } from '@/lib/paths';
 ---
 
 <BaseLayout
@@ -31,11 +32,11 @@ import { personSchema, breadcrumbSchema } from '@/lib/schema';
         <p class="mt-4 text-sm text-taupe">
           Маша дополнит личную историю, обучение и фото дипломов.
         </p>
-        <a href="/#zapis" class="btn-primary mt-8">Записаться на консультацию</a>
+        <a href={path("/#zapis")} class="btn-primary mt-8">Записаться на консультацию</a>
       </div>
       <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-powder">
         <img
-          src={site.photos.about}
+          src={path(site.photos.about)}
           alt={site.photos.aboutAlt}
           width="800"
           height="1000"
@@ -48,13 +49,13 @@ import { personSchema, breadcrumbSchema } from '@/lib/schema';
       <h2>Дипломы и сертификаты</h2>
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <a
-          href={site.photos.diploma}
+          href={path(site.photos.diploma)}
           class="aspect-[3/4] overflow-hidden rounded-2xl bg-powder/60"
           target="_blank"
           rel="noopener"
         >
           <img
-            src={site.photos.diploma}
+            src={path(site.photos.diploma)}
             alt={site.photos.diplomaAlt}
             width="600"
             height="800"
@@ -63,13 +64,13 @@ import { personSchema, breadcrumbSchema } from '@/lib/schema';
           />
         </a>
         <a
-          href={site.photos.work}
+          href={path(site.photos.work)}
           class="aspect-[3/4] overflow-hidden rounded-2xl bg-powder/60"
           target="_blank"
           rel="noopener"
         >
           <img
-            src={site.photos.work}
+            src={path(site.photos.work)}
             alt={site.photos.workAlt}
             width="600"
             height="800"
@@ -81,3 +82,4 @@ import { personSchema, breadcrumbSchema } from '@/lib/schema';
     </div>
   </section>
 </BaseLayout>
+

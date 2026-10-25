@@ -1,4 +1,5 @@
----
+﻿---
+import { path } from '@/lib/paths';
 ---
 
 <div
@@ -10,7 +11,7 @@
   <p class="text-sm text-taupe">
     Мы используем cookie и Яндекс Метрику для улучшения сайта.
     Продолжая пользоваться сайтом, вы соглашаетесь с
-    <a href="/politika/" class="underline hover:text-gold">политикой</a>.
+    <a href={path("/politika/")} class="underline hover:text-gold">политикой</a>.
   </p>
   <button type="button" id="cookie-accept" class="btn-primary mt-3 !h-10 w-full text-sm">
     Понятно
@@ -29,3 +30,4 @@
     banner?.classList.add('hidden');
   });
 </script>
+

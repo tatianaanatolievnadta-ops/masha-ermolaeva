@@ -1,4 +1,6 @@
 ---
+import { path } from '@/lib/paths';
+
 interface Props {
   href: string;
   title: string;
@@ -19,12 +21,12 @@ const {
 ---
 
 <a
-  href={href}
+  href={path(href)}
   class="reveal group block overflow-hidden rounded-3xl bg-powder/40 transition hover:bg-powder/70"
 >
   <div class="aspect-[4/5] overflow-hidden bg-powder">
     <img
-      src={imageSrc}
+      src={path(imageSrc)}
       alt={imageAlt}
       width="640"
       height="800"

@@ -1,6 +1,7 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
+import { path } from '@/lib/paths';
 ---
 
 <BaseLayout
@@ -22,9 +23,10 @@ import { site } from '@/config/site';
       </p>
       <p>
         С политикой обработки персональных данных ознакомлен(а):
-        <a href="/politika/" class="text-gold underline">/politika/</a>.
+        <a href={path("/politika/")} class="text-gold underline">/politika/</a>.
       </p>
       <p class="text-sm">Шаблон. Перед запуском — юрист.</p>
     </div>
   </section>
 </BaseLayout>
+

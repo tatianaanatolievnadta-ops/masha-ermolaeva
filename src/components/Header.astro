@@ -1,14 +1,15 @@
 ---
 import { site } from '@/config/site';
+import { path } from '@/lib/paths';
 ---
 
 <header
   class="sticky top-0 z-40 border-b border-powder/80 bg-milk/95 backdrop-blur-md"
 >
   <div class="container-page flex h-18 items-center justify-between gap-4 py-3 md:h-24 md:py-0">
-    <a href="/" class="flex min-w-0 items-center gap-3 md:gap-4" aria-label={`${site.name} — ${site.slogan}`}>
+    <a href={path('/')} class="flex min-w-0 items-center gap-3 md:gap-4" aria-label={`${site.name} — ${site.slogan}`}>
       <img
-        src={site.photos.logo}
+        src={path(site.photos.logo)}
         alt=""
         width="72"
         height="72"
@@ -28,7 +29,7 @@ import { site } from '@/config/site';
       {
         site.nav.map((item) => (
           <a
-            href={item.href}
+            href={path(item.href)}
             class="text-sm font-medium text-taupe transition-colors hover:text-graphite"
           >
             {item.label}
@@ -49,7 +50,7 @@ import { site } from '@/config/site';
         <a href={site.social.telegram} class="text-xs font-medium text-taupe hover:text-gold" target="_blank" rel="noopener noreferrer">TG</a>
         <a href={site.social.vk} class="text-xs font-medium text-taupe hover:text-gold" target="_blank" rel="noopener noreferrer">VK</a>
       </div>
-      <a href="#zapis" class="btn-primary !h-11 !px-5 text-sm">Записаться</a>
+      <a href={path('/#zapis')} class="btn-primary !h-11 !px-5 text-sm">Записаться</a>
       <button
         type="button"
         id="menu-toggle"
@@ -70,7 +71,7 @@ import { site } from '@/config/site';
     <nav class="container-page flex flex-col gap-1 py-4" aria-label="Мобильное меню">
       {
         site.nav.map((item) => (
-          <a href={item.href} class="rounded-lg px-3 py-3 text-base font-medium hover:bg-powder/50">
+          <a href={path(item.href)} class="rounded-lg px-3 py-3 text-base font-medium hover:bg-powder/50">
             {item.label}
           </a>
         ))

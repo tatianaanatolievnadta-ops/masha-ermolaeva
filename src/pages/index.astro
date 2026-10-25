@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import Accordion from '@/components/Accordion.astro';
@@ -6,6 +6,7 @@ import BeforeAfter from '@/components/BeforeAfter.astro';
 import BookingForm from '@/components/BookingForm.astro';
 import { site, titleHome, descriptionTemplate } from '@/config/site';
 import { beautySalonSchema, faqSchema } from '@/lib/schema';
+import { path } from '@/lib/paths';
 import { getCollection } from 'astro:content';
 
 const services = (await getCollection('services')).sort(
@@ -114,8 +115,8 @@ const description = descriptionTemplate(
           который держится. Кабинет: {site.address}.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#zapis" class="btn-primary">Записаться на консультацию</a>
-          <a href="#uslugi" class="btn-secondary">Посмотреть услуги</a>
+          <a href={path("/#zapis")} class="btn-primary">Записаться на консультацию</a>
+          <a href={path("/#uslugi")} class="btn-secondary">Посмотреть услуги</a>
         </div>
         <ul class="mt-10 grid gap-4 sm:grid-cols-3">
           <li class="rounded-2xl bg-powder/50 p-4">
@@ -138,7 +139,7 @@ const description = descriptionTemplate(
           data-parallax
         >
           <img
-            src={site.photos.hero}
+            src={path(site.photos.hero)}
             alt={site.photos.heroAlt}
             width="800"
             height="1000"
@@ -200,7 +201,7 @@ const description = descriptionTemplate(
         {
           face.map((s) => (
             <ServiceCard
-              href={`/${s.slug}/`}
+              href={path(`/${s.slug}/`)}
               title={s.data.title}
               shortResult={s.data.shortResult}
               priceFrom={s.data.priceFrom}
@@ -213,7 +214,7 @@ const description = descriptionTemplate(
         {
           body.map((s) => (
             <ServiceCard
-              href={`/${s.slug}/`}
+              href={path(`/${s.slug}/`)}
               title={s.data.title}
               shortResult={s.data.shortResult}
               priceFrom={s.data.priceFrom}
@@ -223,7 +224,7 @@ const description = descriptionTemplate(
         }
       </div>
       <p class="mt-8 text-center">
-        <a href="/programma-krasota-po-planu/" class="text-gold hover:underline">
+        <a href={path("/programma-krasota-po-planu/")} class="text-gold hover:underline">
           Годовая программа «Красота по плану» →
         </a>
       </p>
@@ -281,7 +282,7 @@ const description = descriptionTemplate(
     <div class="container-page grid items-center gap-10 lg:grid-cols-2">
       <div class="reveal aspect-[4/5] overflow-hidden rounded-[2rem] bg-powder">
         <img
-          src={site.photos.about}
+          src={path(site.photos.about)}
           alt={site.photos.aboutAlt}
           width="800"
           height="1000"
@@ -297,7 +298,7 @@ const description = descriptionTemplate(
           это не только кожа, но и лёгкость в спине, и спокойный сон. Ко мне
           приезжают из разных районов, и почти все возвращаются.
         </p>
-        <a href="/obo-mne/" class="btn-ghost mt-8">Дипломы и история</a>
+        <a href={path("/obo-mne/")} class="btn-ghost mt-8">Дипломы и история</a>
       </div>
     </div>
   </section>
@@ -312,7 +313,7 @@ const description = descriptionTemplate(
           Процедуры по графику, массаж и домашний уход — один протокол на год.
           Для тех, кто хочет предсказуемый результат, а не разовые визиты.
         </p>
-        <a href="/programma-krasota-po-planu/" class="btn-primary mt-8">Подробнее о программе</a>
+        <a href={path("/programma-krasota-po-planu/")} class="btn-primary mt-8">Подробнее о программе</a>
       </div>
     </div>
   </section>
@@ -345,7 +346,7 @@ const description = descriptionTemplate(
         }
       </div>
       <p class="mt-8 text-center">
-        <a href="/otzyvy/" class="text-gold hover:underline">Все отзывы →</a>
+        <a href={path("/otzyvy/")} class="text-gold hover:underline">Все отзывы →</a>
       </p>
     </div>
   </section>
@@ -400,7 +401,7 @@ const description = descriptionTemplate(
         <div class="mt-6 flex aspect-[4/3] items-center justify-center rounded-3xl bg-powder text-sm text-taupe">
           Карта: вставьте виджет Яндекс Карт после заполнения адреса
         </div>
-        <a href="/kontakty/" class="mt-4 inline-block text-sm text-gold hover:underline">
+        <a href={path("/kontakty/")} class="mt-4 inline-block text-sm text-gold hover:underline">
           Как добраться →
         </a>
       </div>
@@ -439,3 +440,4 @@ const description = descriptionTemplate(
     );
   }
 </script>
+

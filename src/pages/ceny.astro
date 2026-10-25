@@ -1,8 +1,9 @@
----
+﻿---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { site, descriptionTemplate } from '@/config/site';
 import { breadcrumbSchema } from '@/lib/schema';
+import { path } from '@/lib/paths';
 
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order
@@ -57,7 +58,8 @@ const description = descriptionTemplate(
         </table>
       </div>
 
-      <a href="/#zapis" class="btn-primary mt-10">Записаться на консультацию</a>
+      <a href={path("/#zapis")} class="btn-primary mt-10">Записаться на консультацию</a>
     </div>
   </section>
 </BaseLayout>
+
