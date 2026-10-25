@@ -1,0 +1,31 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-[60] hidden border-t border-powder bg-milk p-4 shadow-lg md:bottom-4 md:left-4 md:right-auto md:max-w-md md:rounded-2xl md:border"
+  role="dialog"
+  aria-label="Уведомление о cookie"
+>
+  <p class="text-sm text-taupe">
+    Мы используем cookie и Яндекс Метрику для улучшения сайта.
+    Продолжая пользоваться сайтом, вы соглашаетесь с
+    <a href="/politika/" class="underline hover:text-gold">политикой</a>.
+  </p>
+  <button type="button" id="cookie-accept" class="btn-primary mt-3 !h-10 w-full text-sm">
+    Понятно
+  </button>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const accept = document.getElementById('cookie-accept');
+  const key = 'cookie-accepted';
+  if (banner && !localStorage.getItem(key)) {
+    banner.classList.remove('hidden');
+  }
+  accept?.addEventListener('click', () => {
+    localStorage.setItem(key, '1');
+    banner?.classList.add('hidden');
+  });
+</script>

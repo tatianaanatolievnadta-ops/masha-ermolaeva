@@ -1,0 +1,54 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BookingForm from '@/components/BookingForm.astro';
+import { getCollection } from 'astro:content';
+import { site } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const services = await getCollection('services');
+const serviceOptions = services.map((s) => ({ slug: s.slug, title: s.data.title }));
+---
+
+<BaseLayout
+  title={`Контакты — косметолог рядом, ${site.district}, ${site.city}`}
+  description={`Адрес кабинета, телефон и запись. Косметолог и массажист в ${site.district}.`}
+  jsonLd={breadcrumbSchema([
+    { name: 'Главная', path: '/' },
+    { name: 'Контакты', path: '/kontakty/' },
+  ])}
+>
+  <section class="section">
+    <div class="container-page grid gap-12 lg:grid-cols-2">
+      <div>
+        <h1>Контакты</h1>
+        <ul class="mt-8 space-y-4 text-taupe">
+          <li>
+            <span class="block text-sm font-medium text-graphite">Адрес</span>
+            {site.addressFull}
+          </li>
+          <li>
+            <span class="block text-sm font-medium text-graphite">Телефон</span>
+            <a href={site.phoneHref} class="hover:text-gold">{site.phone}</a>
+          </li>
+          <li>
+            <span class="block text-sm font-medium text-graphite">График</span>
+            {site.schedule}
+          </li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={site.phoneHref} class="btn-primary">Позвонить</a>
+          <a href={site.social.max} class="btn-secondary" target="_blank" rel="noopener noreferrer">MAX</a>
+          <a href={site.social.telegram} class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href={site.social.vk} class="btn-ghost" target="_blank" rel="noopener noreferrer">VK</a>
+        </div>
+        <div class="mt-10 flex aspect-[4/3] items-center justify-center rounded-3xl bg-powder text-sm text-taupe">
+          Виджет Яндекс Карты — после заполнения адреса в site.ts
+        </div>
+      </div>
+      <div id="zapis">
+        <h2 class="mb-6">Запись</h2>
+        <BookingForm services={serviceOptions} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

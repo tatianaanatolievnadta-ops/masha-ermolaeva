@@ -1,0 +1,47 @@
+---
+import { site } from '@/config/site';
+---
+
+<footer class="border-t border-powder bg-powder/40">
+  <div class="container-page section !pb-28 md:!pb-16">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div>
+        <p class="font-display text-2xl font-semibold">Мария {site.lastName}</p>
+        <p class="mt-2 text-taupe">{site.slogan}</p>
+        <p class="mt-4 text-sm text-taupe">
+          Косметолог и массажист в {site.district}, {site.city}
+        </p>
+      </div>
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-taupe">Контакты</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href={site.phoneHref} class="hover:text-gold">{site.phone}</a></li>
+          <li>{site.addressFull}</li>
+          <li>{site.schedule}</li>
+          <li class="flex flex-wrap gap-3 pt-2">
+            <a href={site.social.max} target="_blank" rel="noopener noreferrer" class="hover:text-gold">MAX</a>
+            <a href={site.social.telegram} target="_blank" rel="noopener noreferrer" class="hover:text-gold">Telegram</a>
+            <a href={site.social.vk} target="_blank" rel="noopener noreferrer" class="hover:text-gold">VK</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-taupe">Документы</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/politika/" class="hover:text-gold">Политика обработки персональных данных</a></li>
+          <li><a href="/soglasie/" class="hover:text-gold">Согласие на обработку данных</a></li>
+          <li><a href="/sertifikaty/" class="hover:text-gold">Подарочные сертификаты</a></li>
+          <li><a href="/ceny/" class="hover:text-gold">Цены</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 space-y-3 border-t border-caramel/30 pt-8 text-xs leading-relaxed text-taupe md:text-[12px]">
+      <p class="font-medium text-graphite">{site.disclaimer}</p>
+      <p>
+        Лицензия № {site.license.number} от {site.license.date}, выдана {site.license.issuedBy}.
+      </p>
+      <p>© {new Date().getFullYear()} Мария {site.lastName}. Все права защищены.</p>
+    </div>
+  </div>
+</footer>

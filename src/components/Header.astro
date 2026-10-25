@@ -1,0 +1,81 @@
+---
+import { site } from '@/config/site';
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-powder/80 bg-milk/95 backdrop-blur-md"
+>
+  <div class="container-page flex h-16 items-center justify-between gap-4 md:h-20">
+    <a href="/" class="font-display text-xl font-semibold tracking-tight md:text-2xl">
+      Мария
+      <span class="block text-xs font-sans font-medium tracking-wide text-taupe md:text-sm">
+        {site.slogan}
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Основное меню">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-taupe transition-colors hover:text-graphite"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={site.phoneHref}
+        class="hidden text-sm font-medium text-graphite md:inline"
+      >
+        {site.phone}
+      </a>
+      <div class="hidden items-center gap-2 sm:flex" aria-label="Мессенджеры">
+        <a href={site.social.max} class="text-xs font-medium text-taupe hover:text-gold" target="_blank" rel="noopener noreferrer">MAX</a>
+        <a href={site.social.telegram} class="text-xs font-medium text-taupe hover:text-gold" target="_blank" rel="noopener noreferrer">TG</a>
+        <a href={site.social.vk} class="text-xs font-medium text-taupe hover:text-gold" target="_blank" rel="noopener noreferrer">VK</a>
+      </div>
+      <a href="#zapis" class="btn-primary !h-11 !px-5 text-sm">Записаться</a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-powder lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Открыть меню"
+      >
+        <span class="sr-only">Меню</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-powder bg-milk lg:hidden">
+    <nav class="container-page flex flex-col gap-1 py-4" aria-label="Мобильное меню">
+      {
+        site.nav.map((item) => (
+          <a href={item.href} class="rounded-lg px-3 py-3 text-base font-medium hover:bg-powder/50">
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={site.phoneHref} class="rounded-lg px-3 py-3 text-base font-medium text-gold">
+        {site.phone}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+</script>

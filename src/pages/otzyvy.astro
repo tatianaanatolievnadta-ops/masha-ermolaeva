@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const reviews = await getCollection('reviews');
+---
+
+<BaseLayout
+  title={`Отзывы — Мария ${site.lastName}, косметолог в ${site.city}`}
+  description={`Отзывы клиенток о косметологии и массаже. ${site.district}, ${site.city}.`}
+  jsonLd={breadcrumbSchema([
+    { name: 'Главная', path: '/' },
+    { name: 'Отзывы', path: '/otzyvy/' },
+  ])}
+>
+  <section class="section">
+    <div class="container-page">
+      <h1>Отзывы</h1>
+      <p class="mt-4 max-w-2xl text-taupe">
+        Публикуем только с согласия. Больше отзывов —
+        <a href={site.social.yandexMaps} class="text-gold hover:underline" target="_blank" rel="noopener noreferrer">на Яндекс Картах</a>
+        и в 2ГИС.
+      </p>
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          reviews.map((r) => (
+            <blockquote class="rounded-3xl bg-powder/40 p-6">
+              <div class="text-caramel" aria-label={`Оценка ${r.data.rating} из 5`}>
+                {'★'.repeat(r.data.rating)}
+              </div>
+              <p class="mt-3 text-taupe">«{r.data.text}»</p>
+              <footer class="mt-4 text-sm font-medium">
+                — {r.data.name}
+                {r.data.service && (
+                  <span class="block font-normal text-taupe">{r.data.service}</span>
+                )}
+              </footer>
+            </blockquote>
+          ))
+        }
+      </div>
+      <a href="/#zapis" class="btn-primary mt-12">Записаться</a>
+    </div>
+  </section>
+</BaseLayout>

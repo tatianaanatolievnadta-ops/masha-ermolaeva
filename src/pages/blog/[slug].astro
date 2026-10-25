@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BookingForm from '@/components/BookingForm.astro';
+import { getCollection, render } from 'astro:content';
+import { site } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts
+    .filter((p) => !p.data.draft)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const services = await getCollection('services');
+const serviceOptions = services.map((s) => ({ slug: s.slug, title: s.data.title }));
+---
+
+<BaseLayout
+  title={`${post.data.title} | Мария ${site.lastName}`}
+  description={post.data.description}
+  jsonLd={breadcrumbSchema([
+    { name: 'Главная', path: '/' },
+    { name: 'Блог', path: '/blog/' },
+    { name: post.data.title, path: `/blog/${post.slug}/` },
+  ])}
+>
+  <article class="section">
+    <div class="container-page max-w-3xl">
+      <h1>{post.data.title}</h1>
+      <time class="mt-4 block text-sm text-caramel" datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString('ru-RU')}
+      </time>
+      <div class="prose-article mt-10 space-y-4 text-taupe [&_a]:text-gold [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-3xl [&_h2]:text-graphite [&_p]:leading-relaxed">
+        <Content />
+      </div>
+      <p class="mt-10 text-sm font-medium text-graphite">{site.disclaimer}</p>
+      <div id="zapis" class="mt-14">
+        <h2 class="mb-6">Запись на консультацию</h2>
+        <BookingForm
+          services={serviceOptions}
+          selected={post.data.relatedService}
+        />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,169 @@
+---
+import { site } from '@/config/site';
+
+interface Props {
+  services?: { slug: string; title: string }[];
+  selected?: string;
+}
+
+const { services = [], selected } = Astro.props;
+---
+
+<form
+  id="booking-form"
+  class="space-y-5 rounded-3xl bg-powder/50 p-6 md:p-8"
+  method="POST"
+  action="/api/booking"
+  novalidate
+>
+  <div>
+    <label for="name" class="mb-1.5 block text-sm font-medium">Имя</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      autocomplete="name"
+      class="h-12 w-full rounded-xl border border-caramel/40 bg-milk px-4 outline-none transition focus:border-gold"
+    />
+  </div>
+
+  <div>
+    <label for="phone" class="mb-1.5 block text-sm font-medium">Телефон</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      required
+      autocomplete="tel"
+      placeholder="+7"
+      class="h-12 w-full rounded-xl border border-caramel/40 bg-milk px-4 outline-none transition focus:border-gold"
+    />
+  </div>
+
+  <div>
+    <label for="service" class="mb-1.5 block text-sm font-medium">Услуга</label>
+    <select
+      id="service"
+      name="service"
+      class="h-12 w-full rounded-xl border border-caramel/40 bg-milk px-4 outline-none transition focus:border-gold"
+    >
+      <option value="consult">Консультация</option>
+      {
+        services.map((s) => (
+          <option value={s.slug} selected={selected === s.slug}>
+            {s.title}
+          </option>
+        ))
+      }
+    </select>
+  </div>
+
+  <div>
+    <label for="time" class="mb-1.5 block text-sm font-medium">Удобное время</label>
+    <input
+      type="text"
+      id="time"
+      name="time"
+      placeholder="Например: будни после 18:00"
+      class="h-12 w-full rounded-xl border border-caramel/40 bg-milk px-4 outline-none transition focus:border-gold"
+    />
+  </div>
+
+  <fieldset>
+    <legend class="mb-2 text-sm font-medium">Способ связи</legend>
+    <div class="flex flex-wrap gap-3">
+      {
+        [
+          { v: 'call', l: 'Звонок' },
+          { v: 'max', l: 'MAX' },
+          { v: 'telegram', l: 'Telegram' },
+          { v: 'vk', l: 'VK' },
+        ].map((c, i) => (
+          <label class="inline-flex items-center gap-2 rounded-full border border-caramel/40 bg-milk px-4 py-2 text-sm">
+            <input type="radio" name="contact" value={c.v} required checked={i === 0} />
+            {c.l}
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  {/* honeypot */}
+  <div class="absolute -left-[9999px] opacity-0" aria-hidden="true">
+    <label for="company">Company</label>
+    <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <label class="flex items-start gap-3 text-sm text-taupe">
+    <input
+      type="checkbox"
+      name="consent"
+      required
+      class="mt-1 h-4 w-4 rounded border-caramel"
+    />
+    <span>
+      Соглашаюсь на
+      <a href="/soglasie/" class="underline hover:text-gold">обработку персональных данных</a>
+      и принимаю
+      <a href="/politika/" class="underline hover:text-gold">политику</a>
+    </span>
+  </label>
+
+  <p class="text-xs text-taupe">{site.disclaimer}</p>
+
+  <button type="submit" class="btn-primary w-full" id="booking-submit">
+    Отправить заявку
+  </button>
+  <p id="booking-status" class="hidden text-sm" role="status"></p>
+</form>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const status = document.getElementById('booking-status');
+  const submitBtn = document.getElementById('booking-submit') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    if (submitBtn) submitBtn.disabled = true;
+    status?.classList.remove('hidden');
+    if (status) {
+      status.textContent = 'Отправляем…';
+      status.className = 'text-sm text-taupe';
+    }
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(data.entries())),
+      });
+      if (!res.ok) throw new Error('fail');
+
+      if (status) {
+        status.textContent = 'Заявка отправлена. Я свяжусь с вами в ближайшее время.';
+        status.className = 'text-sm text-graphite';
+      }
+      form.reset();
+
+      // Яндекс Метрика — цель «zapis»
+      // @ts-expect-error ym global
+      if (typeof window.ym === 'function') {
+        // @ts-expect-error
+        window.ym(window.__YM_ID__, 'reachGoal', 'zapis');
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Не удалось отправить. Позвоните или напишите в мессенджер.';
+        status.className = 'text-sm text-red-700';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+</script>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Accordion from '@/components/Accordion.astro';
+import BeforeAfter from '@/components/BeforeAfter.astro';
+import BookingForm from '@/components/BookingForm.astro';
+import { getCollection, render } from 'astro:content';
+import { site, titleService, descriptionTemplate } from '@/config/site';
+import {
+  serviceSchema,
+  faqSchema,
+  breadcrumbSchema,
+} from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const all = await getCollection('services');
+const related = all.filter((s) => service.data.related.includes(s.slug));
+const serviceOptions = all.map((s) => ({ slug: s.slug, title: s.data.title }));
+
+const pageTitle =
+  service.data.seoTitle ??
+  titleService(service.data.title, service.data.priceFrom);
+const description = descriptionTemplate(service.data.seoDescription);
+const url = `/${service.slug}/`;
+
+const contraFaq = service.data.contraindications.map((c) => ({
+  q: c,
+  a: 'Обсуждаем на консультации. При наличии противопоказания процедуру не проводим.',
+}));
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  jsonLd={[
+    serviceSchema({
+      name: service.data.title,
+      description: service.data.seoDescription,
+      url: new URL(url, site.domain).href,
+      priceFrom: service.data.priceFrom,
+    }),
+    faqSchema(service.data.faq),
+    breadcrumbSchema([
+      { name: 'Главная', path: '/' },
+      { name: service.data.title, path: url },
+    ]),
+  ]}
+>
+  <article>
+    <header class="section pb-8">
+      <div class="container-page max-w-3xl">
+        <nav class="mb-6 text-sm text-taupe" aria-label="Хлебные крошки">
+          <a href="/" class="hover:text-gold">Главная</a>
+          <span class="mx-2">/</span>
+          <span>{service.data.title}</span>
+        </nav>
+        <h1>{service.data.title} в {site.city}</h1>
+        <p class="mt-4 text-lg text-taupe">{service.data.shortResult}</p>
+        <p class="mt-6 text-sm font-medium">{site.disclaimer}</p>
+      </div>
+    </header>
+
+    <div class="container-page max-w-3xl space-y-14 pb-section md:pb-section-lg">
+      <section class="reveal prose-custom">
+        <Content />
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-4">Для кого</h2>
+        <p class="text-taupe">{service.data.forWhom}</p>
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-4">Результат и когда виден</h2>
+        <p class="text-taupe">{service.data.resultWhen}</p>
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-6">Как проходит</h2>
+        <ol class="space-y-4">
+          {
+            service.data.steps.map((step, i) => (
+              <li class="rounded-2xl bg-powder/40 p-5">
+                <p class="font-display text-xl">
+                  {i + 1}. {step.title}
+                </p>
+                <p class="mt-2 text-sm text-taupe">{step.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="reveal grid gap-6 sm:grid-cols-2">
+        <div class="rounded-2xl bg-powder/40 p-5">
+          <h2 class="!text-xl">Ощущения и восстановление</h2>
+          <p class="mt-2 text-sm text-taupe">
+            {service.data.duration}. {service.data.recovery}
+          </p>
+        </div>
+        <div class="rounded-2xl bg-powder/40 p-5">
+          <h2 class="!text-xl">Сколько держится</h2>
+          <p class="mt-2 text-sm text-taupe">{service.data.holds}</p>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-4">Противопоказания</h2>
+        <Accordion items={contraFaq} id={`contra-${service.slug}`} />
+      </section>
+
+      <section class="reveal rounded-3xl bg-graphite p-8 text-milk">
+        <h2 class="text-milk">Цена</h2>
+        <p class="mt-3 font-display text-4xl text-caramel">
+          от {service.data.priceFrom.toLocaleString('ru-RU')} ₽
+        </p>
+        <p class="mt-2 text-sm text-powder">
+          Точную стоимость после анамнеза. Прайс на странице
+          <a href="/ceny/" class="underline">«Цены»</a>.
+        </p>
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-6">До и после</h2>
+        <BeforeAfter
+          beforeSrc="/images/placeholder-before.svg"
+          afterSrc="/images/placeholder-after.svg"
+          beforeAlt={`${service.data.title}: до процедуры`}
+          afterAlt={`${service.data.title}: после процедуры`}
+          caption="Фото только с письменного согласия. Замените на реальные."
+        />
+      </section>
+
+      <section class="reveal">
+        <h2 class="mb-6">Вопросы об услуге</h2>
+        <Accordion items={service.data.faq} id={`faq-${service.slug}`} />
+      </section>
+
+      <section id="zapis" class="reveal">
+        <h2 class="mb-2">Запись</h2>
+        <p class="mb-6 text-taupe">
+          Запишитесь на консультацию — разберём задачу и составим план.
+        </p>
+        <BookingForm services={serviceOptions} selected={service.slug} />
+      </section>
+
+      {
+        related.length > 0 && (
+          <section class="reveal">
+            <h2 class="mb-6">С этим часто делают</h2>
+            <ul class="grid gap-4 sm:grid-cols-3">
+              {related.map((r) => (
+                <li>
+                  <a
+                    href={`/${r.slug}/`}
+                    class="block rounded-2xl border border-powder p-5 transition hover:border-caramel"
+                  >
+                    <p class="font-display text-xl">{r.data.title}</p>
+                    <p class="mt-2 text-sm text-taupe">{r.data.shortResult}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-6">
+              <a href="/ceny/" class="text-gold hover:underline">
+                Смотреть все цены →
+              </a>
+            </p>
+          </section>
+        )
+      }
+    </div>
+  </article>
+</BaseLayout>

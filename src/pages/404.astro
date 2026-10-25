@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Страница не найдена"
+  description="Такой страницы нет. Запишитесь на консультацию или вернитесь на главную."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container-page max-w-xl text-center">
+      <p class="font-display text-7xl text-caramel">404</p>
+      <h1 class="mt-4 !text-4xl">Страницы нет</h1>
+      <p class="mt-4 text-taupe">
+        Возможно, ссылка устарела. Можно вернуться на главную или сразу записаться.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn-secondary">На главную</a>
+        <a href="/#zapis" class="btn-primary">Записаться</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+---
+
+<BaseLayout
+  title="Согласие на обработку персональных данных"
+  description="Согласие на обработку персональных данных для записи на консультацию."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container-page max-w-3xl space-y-6 text-taupe">
+      <h1 class="text-graphite">Согласие на обработку персональных данных</h1>
+      <p>
+        Я даю согласие Марии {site.lastName} ({site.addressFull}) на обработку
+        моих персональных данных (имя, телефон, сведения из формы записи) в целях
+        обратной связи и записи на консультацию/процедуры.
+      </p>
+      <p>
+        Согласие действует до его отзыва. Отозвать можно письмом на
+        {site.email} или сообщением в мессенджер.
+      </p>
+      <p>
+        С политикой обработки персональных данных ознакомлен(а):
+        <a href="/politika/" class="text-gold underline">/politika/</a>.
+      </p>
+      <p class="text-sm">Шаблон. Перед запуском — юрист.</p>
+    </div>
+  </section>
+</BaseLayout>

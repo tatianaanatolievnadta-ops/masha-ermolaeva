@@ -1,0 +1,43 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  shortResult: string;
+  priceFrom: number;
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  href,
+  title,
+  shortResult,
+  priceFrom,
+  imageSrc = '/images/placeholder-service.svg',
+  imageAlt = title,
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class="reveal group block overflow-hidden rounded-3xl bg-powder/40 transition hover:bg-powder/70"
+>
+  <div class="aspect-[4/5] overflow-hidden bg-powder">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      width="640"
+      height="800"
+      loading="lazy"
+      class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="space-y-2 p-5">
+    <h3 class="font-display text-2xl font-medium">{title}</h3>
+    <p class="line-clamp-1 text-sm text-taupe">{shortResult}</p>
+    <div class="flex items-center justify-between pt-2">
+      <span class="text-sm font-medium">от {priceFrom.toLocaleString('ru-RU')} ₽</span>
+      <span class="text-sm text-gold transition group-hover:translate-x-1">Подробнее →</span>
+    </div>
+  </div>
+</a>

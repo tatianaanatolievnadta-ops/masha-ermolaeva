@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { personSchema, breadcrumbSchema } from '@/lib/schema';
+---
+
+<BaseLayout
+  title={`Обо мне — Мария ${site.lastName}, косметолог и массажист`}
+  description={`История, дипломы и подход Марии ${site.lastName}. ${site.tagline}`}
+  jsonLd={[
+    personSchema(),
+    breadcrumbSchema([
+      { name: 'Главная', path: '/' },
+      { name: 'Обо мне', path: '/obo-mne/' },
+    ]),
+  ]}
+>
+  <section class="section">
+    <div class="container-page grid gap-12 lg:grid-cols-2">
+      <div>
+        <h1>Обо мне</h1>
+        <p class="mt-6 text-taupe">
+          Я обожаю момент, когда клиентка смотрит в зеркало и говорит: «А я и не
+          знала, что так можно». Работаю с лицом и телом, потому что красота —
+          это не только кожа, но и лёгкость в спине, и спокойный сон. Ко мне
+          приезжают из разных районов, и почти все возвращаются.
+        </p>
+        <p class="mt-4 text-taupe">
+          Позиционирование: {site.tagline}
+        </p>
+        <p class="mt-4 text-sm text-taupe">
+          Маша дополнит личную историю, обучение и фото дипломов.
+        </p>
+        <a href="/#zapis" class="btn-primary mt-8">Записаться на консультацию</a>
+      </div>
+      <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-powder">
+        <img
+          src="/images/portrait-placeholder.svg"
+          alt={`Мария ${site.lastName}`}
+          width="800"
+          height="1000"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <div class="container-page mt-16">
+      <h2>Дипломы и сертификаты</h2>
+      <p class="mt-3 text-taupe">Загрузите фото в `/public/images/diplomas/` и добавьте сюда.</p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          [1, 2, 3].map((n) => (
+            <a
+              href="/images/placeholder-diploma.svg"
+              class="aspect-[3/4] overflow-hidden rounded-2xl bg-powder/60"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="/images/placeholder-diploma.svg"
+                alt={`Диплом ${n} — замените на реальное фото`}
+                width="600"
+                height="800"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

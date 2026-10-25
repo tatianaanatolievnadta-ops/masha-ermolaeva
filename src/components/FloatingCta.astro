@@ -1,0 +1,25 @@
+---
+---
+
+<a
+  id="floating-cta"
+  href="#zapis"
+  class="fixed bottom-4 left-4 right-4 z-50 flex h-[52px] items-center justify-center rounded-pill bg-gold text-base font-medium text-white shadow-lg transition-all duration-300 translate-y-24 opacity-0 md:hidden"
+  aria-hidden="true"
+>
+  Записаться
+</a>
+
+<script>
+  const cta = document.getElementById('floating-cta');
+  if (cta) {
+    const onScroll = () => {
+      const show = window.scrollY > window.innerHeight * 0.7;
+      cta.classList.toggle('translate-y-24', !show);
+      cta.classList.toggle('opacity-0', !show);
+      cta.setAttribute('aria-hidden', String(!show));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

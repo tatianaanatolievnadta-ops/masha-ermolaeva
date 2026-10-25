@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, descriptionTemplate } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const title = `Косметолог цены ${site.city} — прайс | Мария ${site.lastName}`;
+const description = descriptionTemplate(
+  `Актуальные цены на косметологию и массаж в ${site.city}.`
+);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={breadcrumbSchema([
+    { name: 'Главная', path: '/' },
+    { name: 'Цены', path: '/ceny/' },
+  ])}
+>
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h1>Цены</h1>
+      <p class="mt-4 text-taupe">
+        Стоимость «от» — ориентир. Точную сумму назову после анамнеза. Маша
+        подставит актуальный прайс в контент услуг (`priceFrom` в Markdown).
+      </p>
+      <p class="mt-4 text-sm font-medium">{site.disclaimer}</p>
+
+      <div class="mt-10 overflow-hidden rounded-3xl border border-powder">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-powder/50">
+            <tr>
+              <th class="px-5 py-4 font-medium">Услуга</th>
+              <th class="px-5 py-4 font-medium">Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              services.map((s) => (
+                <tr class="border-t border-powder">
+                  <td class="px-5 py-4">
+                    <a href={`/${s.slug}/`} class="hover:text-gold">
+                      {s.data.title}
+                    </a>
+                  </td>
+                  <td class="px-5 py-4 whitespace-nowrap">
+                    от {s.data.priceFrom.toLocaleString('ru-RU')} ₽
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <a href="/#zapis" class="btn-primary mt-10">Записаться на консультацию</a>
+    </div>
+  </section>
+</BaseLayout>

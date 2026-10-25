@@ -1,0 +1,32 @@
+---
+interface Item {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: Item[];
+  id?: string;
+}
+
+const { items, id = 'accordion' } = Astro.props;
+---
+
+<div class="divide-y divide-powder border-y border-powder" id={id}>
+  {
+    items.map((item, i) => (
+      <details class="group py-1" name={id}>
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+          <span>{item.q}</span>
+          <span
+            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-caramel/50 text-caramel transition group-open:rotate-45"
+            aria-hidden="true"
+          >
+            +
+          </span>
+        </summary>
+        <p class="pb-5 pr-10 text-taupe">{item.a}</p>
+      </details>
+    ))
+  }
+</div>

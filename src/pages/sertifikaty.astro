@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+---
+
+<BaseLayout
+  title={`Подарочный сертификат косметолог — Мария ${site.lastName}`}
+  description={`Подарочный сертификат на процедуру или комплекс лицо + тело. ${site.city}.`}
+  jsonLd={breadcrumbSchema([
+    { name: 'Главная', path: '/' },
+    { name: 'Сертификаты', path: '/sertifikaty/' },
+  ])}
+>
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h1>Подарочные сертификаты</h1>
+      <p class="mt-6 text-taupe">
+        Сертификат на процедуру, массаж или комплекс «лицо + тело» — хороший
+        подарок к 8 Марта, Новому году и дню матери. Номинал и оформление —
+        уточняйте при записи.
+      </p>
+      <p class="mt-4 text-sm font-medium">{site.disclaimer}</p>
+      <a href="/#zapis" class="btn-primary mt-10">Оформить сертификат</a>
+    </div>
+  </section>
+</BaseLayout>
