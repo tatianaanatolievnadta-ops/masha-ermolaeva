@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tatianaanatolievnadta-ops.github.io/masha-ermolaeva/sitemap-index.xml
+Sitemap: https://krasota-po-planu.ru/sitemap-index.xml
